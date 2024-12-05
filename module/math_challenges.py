@@ -15,10 +15,11 @@ def math_challenge():
 def math_challenge_factorial():
     n = random.randint(1,10)
     print(f"Math Challenge: Calculate the factorial of {n}")
-    for i in range(n) :
-        answer = answer * n
+    answer = 1
+    for i in range(1,n+1) :
+        answer *= i
     guess = int(input(f"Your answer: "))
-    if guess == n :
+    if guess == answer :
         print("Correct! You win a key.")
         return True
     else :
@@ -118,4 +119,3 @@ def math_roulette_challenge():
                 print("Incorrect answer!")
                 return False
 
-math_challenge()
