@@ -119,3 +119,4 @@ def math_roulette_challenge():
                 print("Incorrect answer!")
                 return False
 
+math_challenge()
