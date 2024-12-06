@@ -16,7 +16,7 @@ def empty_grid():
 def display_grid(grid, message):
     print(message)
     for i in range(len(grid)):
-        print("|")
+        print("|", end="")
         for j in range(len(grid[i])):
             print(grid[i][j], end="|")
         print("")
@@ -27,7 +27,7 @@ def ask_position():
         try:
             user_input = input("Enter a position in format row,column : ").strip()
             row, column = map(int, user_input.split(','))
-            if row in [0, 2] and column in [0, 2]:
+            if 0 <= row <= 2 and 0 <= column <= 2:
                 return row, column
             else:
                 print("Position out of bounds. Please enter values between 0 and 2.")
@@ -46,17 +46,19 @@ def initialize():
     return display_grid(grid, "Here is your game grid with your boats: ")
 
 def turn(player, player_shots_grid, opponent_grid):
-    display_grid(player_shots_grid, "Player history shots")
-
     if player == 0:
+        display_grid(player_shots_grid, "History of your previous shots: ")
         pos = ask_position()
     else:
         pos = (random.randint(0, 2), random.randint(0, 2))
+        print(f"The game master shoots at position {pos}")
 
     if opponent_grid[pos[0]][pos[1]] == "B":
         player_shots_grid[pos[0]][pos[1]] = "x"
+        print("Hit, sunk!")
     else:
         player_shots_grid[pos[0]][pos[1]] = "."
+        print("Splash...")
 
 def has_won(player_shots_grid):
     count = 0
@@ -80,16 +82,24 @@ def battleship_game():
 
     player_shots_grid = empty_grid()
     ai_shots_grid = empty_grid()
-    shots_grids = [player_shots_grid, ai_shots_grid]
 
     player = 0
-    while not has_won(shots_grids[player]):
-        turn(player, player_shots_grid, ai_shots_grid)
-        if has_won(shots_grids[0]):
-            print("The player won!")
-            return True
-        elif has_won(shots_grids[1]):
-            print("The game master won. You lost...")
-            return False
-        else:
-            next_player(player)
+    while True:
+        if player == 0:
+            print("It's your turn to shoot!")
+            turn(player, player_shots_grid, ai_shots_grid)
+            if has_won(player_shots_grid):
+                print("The player won!")
+                return True
+            else:
+                player = next_player(player)
+        elif player == 1:
+            print("It's the game master's turn:")
+            turn(player, ai_shots_grid, player_shots_grid)
+            if has_won(ai_shots_grid):
+                print("The game master won. You lost...")
+                return False
+            else:
+                player = next_player(player)
+
+battleship_game()
