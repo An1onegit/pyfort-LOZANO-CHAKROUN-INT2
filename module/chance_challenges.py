@@ -18,7 +18,7 @@ def shell_game():
         n = random.randint(0,len(l)-1)
         attempts += 1
         shell = l[n]
-        guess = input("Enter your guess : ")[0]
+        guess = input("Enter your guess : ")
         if guess == shell :
             print("Congrats ! you found the key. Seems like you are good at these.")
             return True
