@@ -43,7 +43,8 @@ def initialize():
         while grid[pos[0]][pos[1]] != " ":
             pos = ask_position()
         grid[pos[0]][pos[1]] = "B"
-    return display_grid(grid, "Here is your game grid with your boats: ")
+    display_grid(grid, "Here is your game grid with your boats: ")
+    return grid
 
 def turn(player, player_shots_grid, opponent_grid):
     if player == 0:
@@ -51,6 +52,8 @@ def turn(player, player_shots_grid, opponent_grid):
         pos = ask_position()
     else:
         pos = (random.randint(0, 2), random.randint(0, 2))
+        while player_shots_grid[pos[0]][pos[1]] == "." or player_shots_grid[pos[0]][pos[1]] == "x":
+            pos = (random.randint(0, 2), random.randint(0, 2))
         print(f"The game master shoots at position {pos}")
 
     if opponent_grid[pos[0]][pos[1]] == "B":
@@ -74,7 +77,7 @@ def has_won(player_shots_grid):
 def battleship_game():
     print("Each player must place 2 boats on a 3x3 grid.")
     print("Boats are represented by 'B' and missed shots by '.'. Sunk boats are marked by 'x'.'")
-    initialize()
+    player_grid = initialize()
     ai_grid = empty_grid()
     for i in range(2):
         pos = (random.randint(0, 2), random.randint(0, 2))
@@ -87,7 +90,7 @@ def battleship_game():
     while True:
         if player == 0:
             print("It's your turn to shoot!")
-            turn(player, player_shots_grid, ai_shots_grid)
+            turn(player, player_shots_grid, ai_grid)
             if has_won(player_shots_grid):
                 print("The player won!")
                 return True
@@ -95,7 +98,7 @@ def battleship_game():
                 player = next_player(player)
         elif player == 1:
             print("It's the game master's turn:")
-            turn(player, ai_shots_grid, player_shots_grid)
+            turn(player, ai_shots_grid, player_grid)
             if has_won(ai_shots_grid):
                 print("The game master won. You lost...")
                 return False
