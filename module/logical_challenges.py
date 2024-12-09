@@ -106,4 +106,55 @@ def battleship_game():
             else:
                 player = next_player(player)
 
-battleship_game()
+#battleship_game()
+
+# The Game of Nim
+def display_sticks(n):
+    for i in range(n):
+        print("|", end=" ")
+    print("")
+
+def player_removal(n):
+    x = int(input("Choose how many you want to remove (1,2 or 3) : "))
+    while x not in [1,2,3] and x > n:
+        x = int(input("Choose a valid amount of stick you want to remove (1,2 or 3) : "))
+    return x
+
+def master_removal(n):
+    print("It's the game master's turn")
+    rem = n % 4
+    match rem:
+        case 0:
+            print("He choose to remove 3 sticks")
+            return 3
+        case 1:
+            sticks = random.randint(1,3)
+            print(f"He choose to remove {sticks} sticks")
+            return sticks
+        case 2:
+            print("He choose to remove 1 sticks")
+            return 1
+        case 3:
+            print("He choose to remove 2 sticks")
+            return 2
+
+def nim_game():
+    sticks = 20
+    turn = True
+    while sticks > 0:
+        display_sticks(sticks)
+        if turn:
+            sticks -= player_removal(sticks)
+        else:
+            sticks -= master_removal(sticks)
+        turn = not turn
+        if sticks == 1:
+            display_sticks(sticks)
+            if turn:
+                print("There is only one stick left, you lost...")
+                return False
+            else:
+                print("You won !")
+                return True
+
+nim_game()
