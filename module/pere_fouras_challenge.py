@@ -13,7 +13,8 @@ def load_riddles(file):
 def pere_fouras_riddles():
     riddles = load_riddles('PFRiddles.json')
     d = riddles[random.randint(0, len(riddles))]
-    attempts = 3
+    attempts \
+        = 3
     for key,value in d.items():
         riddle = key
         correct_answer = value
