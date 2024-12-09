@@ -1,7 +1,6 @@
 # Battleship game
 import random
 
-
 def next_player(actual_player):
     return (actual_player + 1) % 2
 
@@ -50,6 +49,8 @@ def turn(player, player_shots_grid, opponent_grid):
     if player == 0:
         display_grid(player_shots_grid, "History of your previous shots: ")
         pos = ask_position()
+        while player_shots_grid[pos[0]][pos[1]] == "." or player_shots_grid[pos[0]][pos[1]] == "x":
+            pos = ask_position()
     else:
         pos = (random.randint(0, 2), random.randint(0, 2))
         while player_shots_grid[pos[0]][pos[1]] == "." or player_shots_grid[pos[0]][pos[1]] == "x":
