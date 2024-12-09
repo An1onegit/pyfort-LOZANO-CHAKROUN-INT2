@@ -1,9 +1,6 @@
 import json
 import random
 
-from pygame.examples.video import answer
-
-
 def load_riddles(file):
     l = []
     with open(file, 'r') as file:
@@ -22,8 +19,7 @@ def pere_fouras_riddles():
         correct_answer = value
     print(riddle)
     while attempts > 0:
-        answer = str(input("Your answer : "))
-        answer.lower()
+        answer = str(input("Your answer (format : The Answer) : "))
         if answer == correct_answer:
             print("The answer is correct ! You won a key.")
             return True
