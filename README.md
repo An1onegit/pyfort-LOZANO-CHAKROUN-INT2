@@ -8,16 +8,14 @@
 **Fort Boyard - Math Challenges in Console**
 
 ### Contributors  
-- **[Name1]** : Development of math challenges and game rules.  
-- **[Name2]** : Game logic, score management, and result saving.  
-- **[Name3]** : Documentation, testing, and validation of game features.
+- **Lino Lozano** 
+- **Giordano Chakroun** 
 
 ### Description  
-In this project, you are immersed in the world of *Fort Boyard*, but this time, everything happens in the console and revolves around math challenges! Each player must solve puzzles and math exercises to collect keys and progress toward the treasure room.
+In this project, you are immersed in the world of *Fort Boyard*, but this time, everything happens in the console and revolves around math challenges! Each player must solve puzzles and math challenges to collect keys and progress toward the treasure room.
 
 ### Key Features  
 - **Varied Math Challenges**: Challenges range from mental arithmetic to logic puzzles, solving equations, and numeric sequences.
-- **Timed Challenges**: Some challenges are time-limited to increase difficulty.
 - **Key Collection**: Players need to complete challenges to earn keys, each unlocking progress toward the treasure room.
 - **Score System**: Scores are saved and can be compared among players.
 - **Console Interface**: The game is played directly in your terminal or console.
@@ -26,7 +24,6 @@ In this project, you are immersed in the world of *Fort Boyard*, but this time, 
 - **Programming Language**: Python 3.
 - **Python Libraries**:  
   - `random`: For random generation of challenges.  
-  - `time`: For managing timers in timed challenges.  
   - `json`: For saving and loading player scores.
 
 ---
@@ -38,9 +35,6 @@ In this project, you are immersed in the world of *Fort Boyard*, but this time, 
    git clone https://github.com/your-username/fort-boyard-maths.git
    cd fort-boyard-maths
    ```
-2. **Install dependencies**:  
-   (No external dependencies required for this basic project.)
-
 ---
 
 ## 3. How to Use
