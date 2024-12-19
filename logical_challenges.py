@@ -174,12 +174,53 @@ def nim_game():
 
 def display_grid2(grid):
     for i in range(3):
-        
+        print("|")
+        for j in range(3):
+            print(grid[i][j],"|")
+    print("---------")
 
     return grid
 
-def check_victory():
-    for i in range():
+def check_victory(grid, symbol):
+    #check rows
+    for i in range(3):
+        c = 0
+        for j in range(3):
+            if grid[i][j] == symbol:
+                c += 1
+        if c == 3:
+            return True
+    #check columns
+    for i in range(3):
+        c=0
+        for j in range(3):
+            if grid[j][i]==symbol:
+                c+=1
+        if c==3:
+            return True 
+
+    #check diagonal
+    for i in range(3):
+        c=0
+        if grid[i][i]==symbol:
+            c+=1
+    if c==3 :
+        return True
+
+    #check anti diagonal
+    for i in range(3):
+        c=0
+        if grid[i][2-i]==symbol:
+            c+=1
+    if c==3 :
+        return True
+
+def master_move(grid, symbol):
+    
+
+
+
+
 
 
 
