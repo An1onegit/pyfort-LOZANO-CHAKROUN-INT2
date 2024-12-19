@@ -184,39 +184,79 @@ def display_grid2(grid):
 def check_victory(grid, symbol):
     #check rows
     for i in range(3):
-        c = 0
+        s = 0
         for j in range(3):
             if grid[i][j] == symbol:
-                c += 1
-        if c == 3:
+                s += 1
+        if s == 3:
             return True
     #check columns
     for i in range(3):
-        c=0
+        s=0
         for j in range(3):
             if grid[j][i]==symbol:
-                c+=1
-        if c==3:
+                s+=1
+        if s==3:
             return True 
 
     #check diagonal
     for i in range(3):
-        c=0
+        s=0
         if grid[i][i]==symbol:
-            c+=1
-    if c==3 :
+            s+=1
+    if s==3 :
         return True
 
     #check anti diagonal
     for i in range(3):
-        c=0
+        s=0
         if grid[i][2-i]==symbol:
-            c+=1
-    if c==3 :
+            s+=1
+    if s==3 :
         return True
 
 def master_move(grid, symbol):
-    
+    if symbol=="O":
+        opps_symbol="X"
+    else:
+        opps_symbol ="O"
+
+
+#check for win
+    for i in range(3):
+       for j in range(3):
+           if grid[i][j]==" ":
+               grid[i][j]=symbol
+               if check_victory(grid, symbol):
+                   grid[i][j]=" "
+                   return (i,j)
+               grid[i][j]=" "
+
+
+#defence
+    for i in range(3):
+        for j in range(3):
+            if grid[i][j]==" ":
+                grid[i][j]=opps_symbol
+                if check_victory(grid, opps_symbol):
+                    grid[i][j]=" "
+                    return (i,j)
+                grid[i][j]=" "
+
+
+#random
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
