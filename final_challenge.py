@@ -3,7 +3,7 @@ import random
 
 
 def treasure_room():
-    file = 'TRClues.json'
+    file = 'data/TRClues.json'
     with open(file, 'r') as file:
         tv_game = json.load(file)
 

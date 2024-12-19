@@ -158,3 +158,20 @@ def nim_game():
                 return True
 
 #nim_game()
+
+#The tic tac toe game
+
+def display_grid2(grid):
+    for i in range(3):
+        
+
+    return grid
+
+def check_victory():
+    for i in range():
+
+
+
+
+
+

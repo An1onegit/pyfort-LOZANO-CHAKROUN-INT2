@@ -11,7 +11,7 @@ def load_riddles(file):
     return l
 
 def pere_fouras_riddles():
-    riddles = load_riddles('PFRiddles.json')
+    riddles = load_riddles('data/PFRiddles.json')
     d = riddles[random.randint(0, len(riddles))]
     attempts \
         = 3
