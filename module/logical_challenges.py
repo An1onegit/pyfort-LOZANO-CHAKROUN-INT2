@@ -157,4 +157,4 @@ def nim_game():
                 print("You won !")
                 return True
 
-nim_game()
+#nim_game()
