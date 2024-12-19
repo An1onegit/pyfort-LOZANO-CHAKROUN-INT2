@@ -1,6 +1,17 @@
 # Battleship game
 import random
 
+def logical_challenge():
+    x = random.randint(1, 4)
+    match x:
+        case 1:
+            nim_game()
+        case 2:
+            tictactoe_game()
+        case 3:
+            battleship_game()
+
+
 def next_player(actual_player):
     return (actual_player + 1) % 2
 
