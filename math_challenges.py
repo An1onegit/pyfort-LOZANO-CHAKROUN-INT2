@@ -118,5 +118,3 @@ def math_roulette_challenge():
             else:
                 print("Incorrect answer!")
                 return False
-
-math_challenge()

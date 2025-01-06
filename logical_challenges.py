@@ -253,7 +253,6 @@ def master_move(grid, symbol):
             return (i,j)
 
 
-
 def player_turn(grid):
     a=1
     while a==1:
@@ -297,8 +296,8 @@ def check_result(grid):
     else :
         return 4
 
- def tictactoe_game():
-     grid = [[" "," "," "][" "," "," "][" "," "," "]]
+def tictactoe_game():
+     grid = [[" "," "," "],[" "," "," "],[" "," "," "]]
      while True :
         print("Player's turn.")
         player_turn(grid)

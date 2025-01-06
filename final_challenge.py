@@ -41,5 +41,3 @@ def treasure_room():
         print("You won !")
     else:
         print("You lost... too bad...")
-
-treasure_room()

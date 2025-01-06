@@ -48,5 +48,3 @@ def roll_dice_game():
                 print("Next attempt")
     print("None of the players won... It's a draw.")
     return False
-
-chance_challenge()

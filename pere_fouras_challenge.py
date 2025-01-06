@@ -32,5 +32,3 @@ def pere_fouras_riddles():
             else:
                 print(f"You lost... The correct answer was : {correct_answer}")
                 return False
-
-pere_fouras_riddles()

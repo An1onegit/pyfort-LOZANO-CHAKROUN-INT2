@@ -5,7 +5,6 @@ from logical_challenges import logical_challenge
 from math_challenges import math_challenge
 from pere_fouras_challenge import pere_fouras_riddles
 
-
 def game():
     key = 0
     utility_functions.introduction()
@@ -30,9 +29,11 @@ def game():
                 if pere_fouras_riddles():
                     player["key"] += 1
                     key += 1
-    if final_challenge.treasure_room():
-            print("Win")
-            return True
-    else:
-        print("Lose")
-        return False
+    #if final_challenge.treasure_room():
+    #        print("Win")
+    #        return True
+    #else:
+    #    print("Lose")
+    #    return False
+
+game()
