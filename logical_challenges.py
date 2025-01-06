@@ -216,10 +216,8 @@ def check_victory(grid, symbol):
         return True
 
 def master_move(grid, symbol):
-    if symbol=="O":
-        opps_symbol="X"
-    else:
-        opps_symbol ="O"
+    symbol = "O"
+    player_symbol="X"
 
 
 #check for win
@@ -237,14 +235,108 @@ def master_move(grid, symbol):
     for i in range(3):
         for j in range(3):
             if grid[i][j]==" ":
-                grid[i][j]=opps_symbol
-                if check_victory(grid, opps_symbol):
+                grid[i][j]=player_symbol
+                if check_victory(grid, player_symbol):
                     grid[i][j]=" "
                     return (i,j)
                 grid[i][j]=" "
 
 
 #random
+    import random
+    a=1
+    while a==1:
+        i=random.randint(0,2)
+        j=random.randint(0,2)
+        if grid[i][j]==" ":
+            a = 0
+            return (i,j)
+
+
+
+def player_turn(grid):
+    a=1
+    while a==1:
+        print("player's turn.")
+        x=int(input("Enter the row value, between 1 to 3 : "))-1
+        y=int(input("Enter the column value, between 1 to 3"))-1
+        if x<0 or x>2 or y<0 or y>2 :
+            print("Error, your box doesn't exist, try again. ")
+        else :
+            a=0
+    a=1
+    while a==1:
+        if grid[x][y]==" ":
+            grid[x][y]="X"
+            a=0
+        else :
+            print("Error, the box which u are referring to is not empty ! Try again.")
+
+def master_turn(grid):
+    n=master_move(grid, "O")
+    """??????"""
+    grid[n[0],n[1]]="O"
+
+
+
+def full_grid(grid):
+    for i in range(3):
+        for j in range(3):
+            if grid[i][j]==" ":
+                return False
+            else :
+                return True
+
+def check_result(grid):
+    if check_victory(grid, "X")== True:
+        return 1
+    if check_victory(grid, "O" )== True:
+        return 2
+    elif full_grid(grid)==True :
+        return 3
+    else :
+        return 4
+
+ def tictactoe_game():
+     grid = [[" "," "," "][" "," "," "][" "," "," "]]
+     while True :
+        print("Player's turn.")
+        player_turn(grid)
+
+        a=check_result(grid)
+        if a == 1 :
+            print("Good job ! You won.")
+            return True
+        elif a == 3:
+            print("It's a tie ! Nice try!")
+            return False
+        elif a == 4:
+            display_grid2(grid)
+
+        print("Master's turn")
+        master_turn(grid)
+
+        a=check_result(grid)
+        if a == 2:
+            print("You lost, Nice try..")
+            return False
+        elif a == 3:
+            print("It's a tie ! Nice try!")
+            return False
+        elif a==4 :
+            display_grid2(grid)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
