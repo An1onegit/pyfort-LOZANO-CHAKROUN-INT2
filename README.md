@@ -87,7 +87,7 @@ The game is structured as follows:
 - **Test Case 1**: Player enters a valid answer to a challenge.  
   - **Expected Result**: Player earns a key and the next challenge appears.
 - **Test Case 2**: Player enters a non valid answer to a challenge.
-  - - **Expected Result**: The console remind the player to enter a valid input.
+  - **Expected Result**: The console remind the player to enter a valid input.
   
 **Screenshots**:  
 ![image](https://github.com/user-attachments/assets/a53ddc44-e61f-4d42-ae7d-46eab5d5bf1d)
