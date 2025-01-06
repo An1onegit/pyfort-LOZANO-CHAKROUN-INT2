@@ -3,6 +3,9 @@ import random
 
 
 def treasure_room():
+    print("Welcome to the treasure_room !")
+    print("This is the final challenge so be careful.")
+
     file = 'data/TRClues.json'
     with open(file, 'r') as file:
         tv_game = json.load(file)
@@ -11,16 +14,15 @@ def treasure_room():
     for i in tv_game["Fort Boyard"]:
         years.append(i)
     year = years[random.randint(0, len(years)-1)]
-    print(year)
 
     shows = []
     for i in tv_game["Fort Boyard"][year]:
         shows.append(i)
     show = shows[random.randint(0,len(shows)-1)]
-    print(show)
     clues = tv_game["Fort Boyard"][year][show]["Clues"]
     code_word = tv_game["Fort Boyard"][year][show]["CODE-WORD"]
     numbers_of_clue = 3
+    print("Here are some clues : ")
     print(clues[:numbers_of_clue])
     attempts = 3
     answer_correct = False
