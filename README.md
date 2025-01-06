@@ -91,10 +91,5 @@ The game is structured as follows:
   - - **Expected Result**: The console remind the player to enter a valid input.
   
 **Screenshots**:  
-(Include screenshots of the game running in the console, showing test cases in action.)
-
----
-
-## 7. License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+![image](https://github.com/user-attachments/assets/a53ddc44-e61f-4d42-ae7d-46eab5d5bf1d)
+![image](https://github.com/user-attachments/assets/81e4db2c-43d8-42dc-89d5-098c4780a5f4)
