@@ -4,9 +4,9 @@ def chance_challenge():
     x = random.randint(1,2)
     match x:
         case 1:
-            shell_game()
+            return shell_game()
         case 2:
-            roll_dice_game()
+            return roll_dice_game()
 
 def shell_game():
     l = ["A","B","C"]
@@ -18,7 +18,7 @@ def shell_game():
         n = random.randint(0,len(l)-1)
         attempts += 1
         shell = l[n]
-        guess = input("Enter your guess : ")
+        guess = input("Enter your guess, (A/B/C) : ")
         if guess == shell :
             print("Congrats ! you found the key. Seems like you are good at these.")
             return True

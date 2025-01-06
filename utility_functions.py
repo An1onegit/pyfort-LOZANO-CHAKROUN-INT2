@@ -41,8 +41,15 @@ def challenge_menu():
     print("3. chance challenges")
     print("4. pere fouras' riddle")
 
-    c = int(input("Select which task you wanna perform first : "))
-    return c
+    while True:
+        try:
+            c = int(input("Select which task you wanna perform first (1-4): "))
+            if 0 < c <= 4:
+                return c
+            else:
+                print("Invalid choice. Please select a number between 1 and 4.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number between 1 and 4.")
 
 def choose_player(team):
     for i in range(len(team)):
@@ -52,10 +59,16 @@ def choose_player(team):
             status="member"
         print(f"{i+1}. {team[i]['name']} {team[i]['profession']} - {status}")
 
-    n = int(input("Enter the number of the player you'd like to select : "))
-    while n < 0 or n > len(team):
-        n = int(input("Enter the number of the player you'd like to select : "))
+    while True:
+        try:
+            n = int(input("Enter the number of the player you'd like to select : "))
+            if 0 < n <= 3:
+                break
+            else:
+                print("Invalid choice. Please select a number between 1 and 4.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number between 1 and 4.")
 
     for i in range(len(team)):
-        if n-1 == i :
+        if n-1 == i:
             return team[i]

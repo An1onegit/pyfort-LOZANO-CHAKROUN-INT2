@@ -4,13 +4,13 @@ def math_challenge():
     x = random.randint(1, 4)
     match x:
         case 1:
-            math_challenge_factorial()
+            return math_challenge_factorial()
         case 2:
-            math_challenge_prime()
+            return math_challenge_prime()
         case 3:
-            math_roulette_challenge()
+            return math_roulette_challenge()
         case 4:
-            math_challenge_equation()
+            return math_challenge_equation()
 
 def math_challenge_factorial():
     n = random.randint(1,10)
@@ -30,7 +30,7 @@ def math_challenge_equation():
     a = random.randint(1, 10)
     b = random.randint(1, 10)
     print(f"Math Challenge : Solve the equation {a}x+{b} = 0")
-    x = int(input("What is the value of x : "))
+    x = float(input("What is the value of x : "))
     if solve_linear_equation(a,b,x):
         print("Correct! The key is yours.")
         return True

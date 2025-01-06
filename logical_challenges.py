@@ -5,11 +5,11 @@ def logical_challenge():
     x = random.randint(1, 4)
     match x:
         case 1:
-            nim_game()
+            return nim_game()
         case 2:
-            tictactoe_game()
+            return tictactoe_game()
         case 3:
-            battleship_game()
+            return battleship_game()
 
 
 def next_player(actual_player):
@@ -87,6 +87,7 @@ def has_won(player_shots_grid):
         return False
 
 def battleship_game():
+    print("Welcome to the battleship game !")
     print("Each player must place 2 boats on a 3x3 grid.")
     print("Boats are represented by 'B' and missed shots by '.'. Sunk boats are marked by 'x'.'")
     player_grid = initialize()
@@ -149,6 +150,7 @@ def master_removal(n):
             return 2
 
 def nim_game():
+    print("Welcome to the nim game !")
     sticks = 20
     turn = True
     while sticks > 0:
@@ -284,8 +286,9 @@ def check_result(grid):
         return 4
 
 def tictactoe_game():
-     grid = [[" "," "," "],[" "," "," "],[" "," "," "]]
-     while True:
+    print("welcome to the tictactoe game")
+    grid = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    while True:
         player_turn(grid)
         a = check_result(grid)
         if a == 1 :
