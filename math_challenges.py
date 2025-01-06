@@ -46,7 +46,7 @@ def solve_linear_equation(a, b, x):
 
 def math_challenge_prime():
     number = random.randint(10,20)
-    print(f"Math Challenge: Find the nearest prime to {number}.")
+    print(f"Math Challenge: Find the nearest prime to {number}. (in case there is 2 answers choose the lower one)")
     x = int(input("Your answer: "))
     if is_prime(x):
         if nearest_prime(number) == x:
@@ -75,7 +75,14 @@ def nearest_prime(n):
     x = n
     while not is_prime(x):
         x += 1
-    return x
+    y = n
+    while not(is_prime(y)):
+        y -= 1
+
+    if abs(n-x) < abs(n-y):
+        return x
+    else:
+        return y
 
 def math_roulette_challenge():
     numbers = []
