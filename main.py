@@ -29,11 +29,11 @@ def game():
                 if pere_fouras_riddles():
                     player["key"] += 1
                     key += 1
-    #if final_challenge.treasure_room():
-    #        print("Win")
-    #        return True
-    #else:
-    #    print("Lose")
-    #    return False
+    if final_challenge.treasure_room():
+            print("Win")
+            return True
+    else:
+        print("Lose")
+        return False
 
 game()

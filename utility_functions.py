@@ -9,28 +9,29 @@ def introduction():
 def compose_equipe():
     n = 0
     lc = 0
-    n = int(input("Enter the number of player ! reminder, it must be between 1 and 3."))
+    n = int(input("Enter the number of player ! reminder, it must be between 1 and 3 : "))
     while n < 1 or n > 3:
         print("Error, the number of player must be between 1 and 3.")
-        n = int(input("Enter the number of player ! reminder, it must be between 1 and 3."))
+        n = int(input("Enter the number of player ! reminder, it must be between 1 and 3 : "))
     team = []
     for i in range(n):
         print(f"Enter the player {i+1} information :")
         name = input("name : ")
         profession = input("profession : ")
-        leader = input("is this person the leader ? if yes, answer 1, else 0 : ")
-        if leader == 1 :
-            leader = True
-            lc = lc+1
+        is_leader = str(input("Is this person the leader ? (Yes/No): "))
+        if is_leader == "Yes" or is_leader == "yes" or is_leader == "Y" or is_leader == "y":
+            if lc < 1:
+                leader = True
+                lc += 1
         else :
             leader = False
 
         player = {'name':name,'profession':profession,'leader':leader,'keys':0}
         team.append(player)
 
-    if lc == 0 :
+    if lc == 0:
         print("there is no leader to this team, so, the first player of the team will be declared the leader")
-        team[0]['leader']=True
+        team[0]['leader'] = True
     return team
 
 def challenge_menu():

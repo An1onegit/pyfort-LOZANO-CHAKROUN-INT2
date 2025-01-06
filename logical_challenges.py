@@ -117,7 +117,6 @@ def battleship_game():
             else:
                 player = next_player(player)
 
-#battleship_game()
 
 # The Game of Nim
 def display_sticks(n):
@@ -168,17 +167,13 @@ def nim_game():
                 print("You won !")
                 return True
 
-#nim_game()
-
 #The tic tac toe game
-
 def display_grid2(grid):
     for i in range(3):
         print("|")
         for j in range(3):
             print(grid[i][j],"|")
     print("---------")
-
     return grid
 
 def check_victory(grid, symbol):
@@ -190,119 +185,109 @@ def check_victory(grid, symbol):
                 s += 1
         if s == 3:
             return True
+
     #check columns
     for i in range(3):
         s=0
         for j in range(3):
-            if grid[j][i]==symbol:
-                s+=1
-        if s==3:
-            return True 
+            if grid[j][i] == symbol:
+                s += 1
+        if s == 3:
+            return True
 
     #check diagonal
     for i in range(3):
-        s=0
-        if grid[i][i]==symbol:
-            s+=1
-    if s==3 :
+        s = 0
+        if grid[i][i] == symbol:
+            s += 1
+    if s == 3:
         return True
 
     #check anti diagonal
     for i in range(3):
-        s=0
-        if grid[i][2-i]==symbol:
-            s+=1
-    if s==3 :
+        s = 0
+        if grid[i][2-i] == symbol:
+            s += 1
+    if s == 3:
         return True
+
+    return False
 
 def master_move(grid, symbol):
     symbol = "O"
     player_symbol="X"
 
-
-#check for win
+    #check for win
     for i in range(3):
        for j in range(3):
-           if grid[i][j]==" ":
-               grid[i][j]=symbol
+           if grid[i][j] == " ":
+               grid[i][j] = symbol
                if check_victory(grid, symbol):
                    grid[i][j]=" "
-                   return (i,j)
+                   return i,j
                grid[i][j]=" "
 
 
-#defence
+    #defence
     for i in range(3):
         for j in range(3):
             if grid[i][j]==" ":
-                grid[i][j]=player_symbol
+                grid[i][j] = player_symbol
                 if check_victory(grid, player_symbol):
-                    grid[i][j]=" "
-                    return (i,j)
-                grid[i][j]=" "
+                    grid[i][j] = " "
+                    return i,j
+                grid[i][j] = " "
 
-
-#random
-    import random
-    a=1
-    while a==1:
-        i=random.randint(0,2)
-        j=random.randint(0,2)
-        if grid[i][j]==" ":
-            a = 0
-            return (i,j)
+    while True:
+        i = random.randint(0,2)
+        j = random.randint(0,2)
+        if grid[i][j] == " ":
+            return i,j
 
 
 def player_turn(grid):
-    a=1
-    while a==1:
+    valid = False
+    while not valid:
         print("player's turn.")
-        x=int(input("Enter the row value, between 1 to 3 : "))-1
-        y=int(input("Enter the column value, between 1 to 3"))-1
-        if x<0 or x>2 or y<0 or y>2 :
+        x = int(input("Enter the row value, between 1 to 3 : ")) - 1
+        y = int(input("Enter the column value, between 1 to 3 : ")) - 1
+        if x < 0 or x > 2 or y < 0 or y > 2:
             print("Error, your box doesn't exist, try again. ")
         else :
-            a=0
-    a=1
-    while a==1:
-        if grid[x][y]==" ":
-            grid[x][y]="X"
-            a=0
-        else :
-            print("Error, the box which u are referring to is not empty ! Try again.")
+            if grid[x][y]==" ":
+                grid[x][y] = "X"
+                valid = True
+            else:
+                print("Error, the box which u are referring to is not empty ! Try again.")
 
 def master_turn(grid):
-    n=master_move(grid, "O")
-    """??????"""
-    grid[n[0],n[1]]="O"
-
-
+    print("Master's turn")
+    n = master_move(grid, "O")
+    grid[n[0]][n[1]] = "O"
 
 def full_grid(grid):
     for i in range(3):
         for j in range(3):
-            if grid[i][j]==" ":
+            if grid[i][j] == " ":
                 return False
-            else :
+            else:
                 return True
 
 def check_result(grid):
-    if check_victory(grid, "X")== True:
+    if check_victory(grid, "X"):
         return 1
-    if check_victory(grid, "O" )== True:
+    if check_victory(grid, "O" ):
         return 2
-    elif full_grid(grid)==True :
+    elif full_grid(grid):
         return 3
     else :
         return 4
 
 def tictactoe_game():
      grid = [[" "," "," "],[" "," "," "],[" "," "," "]]
-     while True :
-        print("Player's turn.")
+     while True:
         player_turn(grid)
-
-        a=check_result(grid)
+        a = check_result(grid)
         if a == 1 :
             print("Good job ! You won.")
             return True
@@ -312,17 +297,16 @@ def tictactoe_game():
         elif a == 4:
             display_grid2(grid)
 
-        print("Master's turn")
         master_turn(grid)
 
-        a=check_result(grid)
+        a = check_result(grid)
         if a == 2:
             print("You lost, Nice try..")
             return False
         elif a == 3:
             print("It's a tie ! Nice try!")
             return False
-        elif a==4 :
+        elif a == 4:
             display_grid2(grid)
 
 
