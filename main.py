@@ -10,7 +10,6 @@ def game():
     utility_functions.introduction()
     team = utility_functions.compose_equipe()
     while key < 3:
-        print(key)
         challenge = utility_functions.challenge_menu()
         player = utility_functions.choose_player(team)
         match challenge:
