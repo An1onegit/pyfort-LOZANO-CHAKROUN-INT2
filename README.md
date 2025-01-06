@@ -20,20 +20,11 @@ In this project, you are immersed in the world of *Fort Boyard*, but this time, 
 - **Score System**: Scores are saved and can be compared among players.
 - **Console Interface**: The game is played directly in your terminal or console.
 
-### Technologies Used  
-- **Programming Language**: Python 3.
-- **Python Libraries**:  
-  - `random`: For random generation of challenges.  
-  - `json`: For saving and loading player scores.
-
----
-
 ## 2. Installation
 
 1. **Clone the repository**:  
    ```bash
-   git clone https://github.com/your-username/fort-boyard-maths.git
-   cd fort-boyard-maths
+   git clone https://github.com/An1onegit/pyfort-LOZANO-CHAKROUN-INT2.git
    ```
 ---
 
@@ -43,10 +34,6 @@ To start the game, run the following command in your terminal:
 ```bash
 python main.py
 ```
-
-Follow the on-screen instructions to play through various challenges. You will be given a set of math tasks, and you must solve them within the given time (for timed challenges). Once you collect enough keys, you will access the treasure room for the final challenge!
-
----
 
 ## 4. Technical Documentation
 
@@ -84,25 +71,24 @@ The game is structured as follows:
 ## 5. Logbook
 
 ### Project Chronology  
-- **[Date1]**: Project setup and initial planning.  
-- **[Date2]**: First round of development completed: math challenges implemented.  
-- **[Date3]**: Implemented key collection system and final treasure room.  
-- **[Date4]**: Final testing and bug fixing.
+- **05/12**: Project setup and initial planning.  
+- **05/12**: First round of development completed: math challenges implemented.  
+- **12/12**: Implemented key collection system and final treasure room.  
+- **05/01**: Final testing and bug fixing.
 
 ### Task Distribution  
-- **[Name1]**: Worked on developing math challenges and implementing the logic for generating random problems.  
-- **[Name2]**: Focused on developing the key system, managing the game flow, and saving scores.  
-- **[Name3]**: Handled documentation, testing the game, and fixing minor bugs.
+- **Lino LOZANO**: Worked on developing math challenges and implementing the logic for generating random problems.  
+- **Giordano CHAKROUN**: Focused on developing the key system and help with the logical challenges
 
 ---
 
 ## 6. Testing and Validation
 
 ### Test Strategies  
-- **Test Case 1**: Player enters a valid answer to a math challenge.  
+- **Test Case 1**: Player enters a valid answer to a challenge.  
   - **Expected Result**: Player earns a key and the next challenge appears.
-- **Test Case 2**: Player runs out of time in a timed challenge.  
-  - **Expected Result**: Player loses a chance, and the next challenge is presented.
+- **Test Case 2**: Player enters a non valid answer to a challenge.
+  - - **Expected Result**: The console remind the player to enter a valid input.
   
 **Screenshots**:  
 (Include screenshots of the game running in the console, showing test cases in action.)
