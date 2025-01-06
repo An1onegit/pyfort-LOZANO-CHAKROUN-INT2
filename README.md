@@ -12,12 +12,11 @@
 - **Giordano Chakroun** 
 
 ### Description  
-In this project, you are immersed in the world of *Fort Boyard*, but this time, everything happens in the console and revolves around math challenges! Each player must solve puzzles and math challenges to collect keys and progress toward the treasure room.
+In this project, you are immersed in the world of *Fort Boyard*! Each player must solve puzzles and math challenges to collect keys and progress toward the treasure room.
 
 ### Key Features  
 - **Varied Math Challenges**: Challenges range from mental arithmetic to logic puzzles, solving equations, and numeric sequences.
 - **Key Collection**: Players need to complete challenges to earn keys, each unlocking progress toward the treasure room.
-- **Score System**: Scores are saved and can be compared among players.
 - **Console Interface**: The game is played directly in your terminal or console.
 
 ## 2. Installation
@@ -41,27 +40,27 @@ python main.py
 The game is structured as follows:
 
 1. The player starts the game.
-2. The player chooses a challenge.
-3. The system generates random parameters for the selected challenge.
-4. The player submits their answer:
+2. The player creates a team.
+3. The system shows a menu of challenges.
+4. One player can choose to play one of thoses challenges
+5. The player submits their answer:
    - If the answer is correct, the player earns a key.
    - If the answer is incorrect, they lose a chance.
-5. The player continues solving challenges until they have enough keys or fail too many times.
-6. If the player collects enough keys, they unlock the treasure room and face a final puzzle.
+6. The player continues solving challenges until they have enough keys.
+7. If the player collects enough keys, they unlock the treasure room and face a final puzzle.
 
 ### Functions
 
 | **Function**              | **Description**                                                                                          | **Parameters**              |
 |---------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------|
-| `start_game()`            | Starts the game and initializes the necessary variables.                                                  | None                        |
-| `generate_challenge()`    | Generates a challenge based on the selected type (math, logic, etc.).                                      | `type`: Type of challenge.  |
-| `check_answer()`          | Checks if the player's answer is correct.                                                                | `answer`: Player's answer.  |
-| `save_score()`            | Saves the player's score to a JSON file.                                                                  | `score`: Player's score.    |
-| `load_scores()`           | Loads previous scores from the JSON file.                                                                | None                        |
+| `game()`                  | Starts the game and initializes the necessary variables.                                                  | None                        |
+| `nim_game()`              | Handle the nim game.                                                                                     | None
+| `check_victory()`         | Checks if the player won.                                                                               | `grid`: game's grid, `symbol`: player's symbol |
+| `load_riddles()`          | Load the riddles frome a JSON file.                                                                    | `file`: file with all the riddles  |
+| `compose_equipe()`        | Compose the team.                                                                                       | None                        |
 
 ### Input and Error Management  
 - **Input Validation**: The game ensures that user input is in the correct format (numbers, expressions).  
-- **Error Management**: If the user provides invalid input or a timeout occurs, the game will prompt them again.
   
 **Known Bugs**:
 - If the player enters a non-numeric input during a math challenge, the game may not handle it gracefully (we're working on fixing this).
@@ -77,8 +76,8 @@ The game is structured as follows:
 - **05/01**: Final testing and bug fixing.
 
 ### Task Distribution  
-- **Lino LOZANO**: Worked on developing math challenges and implementing the logic for generating random problems.  
-- **Giordano CHAKROUN**: Focused on developing the key system and help with the logical challenges
+- **Lino LOZANO**: Main, math challenge roulette, math challenge prime, chance challenge roll dice, logical challenge battleship game, logical challenge nim game, pere fouras challenge, readme
+- **Giordano CHAKROUN**: Utility functions, tic-tac-toe game, math challenge equation, math challenge factorial, chance challenge shell game, readme
 
 ---
 
