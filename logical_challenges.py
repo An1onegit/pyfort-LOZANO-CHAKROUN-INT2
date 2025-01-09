@@ -127,7 +127,7 @@ def display_sticks(n):
 
 def player_removal(n):
     x = int(input("Choose how many you want to remove (1,2 or 3) : "))
-    while x not in [1,2,3] and x > n:
+    while x < 1 or x > 3:
         x = int(input("Choose a valid amount of stick you want to remove (1,2 or 3) : "))
     return x
 
@@ -172,9 +172,10 @@ def nim_game():
 #The tic tac toe game
 def display_grid2(grid):
     for i in range(3):
-        print("|")
+        print("|", end="")
         for j in range(3):
-            print(grid[i][j],"|")
+            print(grid[i][j],end="|")
+        print("")
     print("---------")
     return grid
 
